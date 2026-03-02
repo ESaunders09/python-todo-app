@@ -1,6 +1,5 @@
 tasks = []
 
-
 # Repeat until user chooses to exit
 while True:
     # Display menu with options
@@ -22,6 +21,7 @@ while True:
         if len(tasks) > 0:
             for task in tasks:
                 print(str(task_count) + "." , task)
+                task_count += 1
             print()
 
         else:
@@ -38,3 +38,18 @@ while True:
         else:
             print("Task added! There is now", str(len(tasks)), "task!")
             print()
+
+    elif user_option == "3":
+        remove_task = int(input("Please enter the number for the task you want to remove: "))
+        print()
+        if remove_task < 1 or remove_task > len(tasks):
+            print("Invalid task number! Please choose another option.")
+        else:
+            del tasks[(remove_task - 1)]
+            print("Task removed!")
+            print()
+            for task in tasks:
+                print(str(task_count) + "." , task)
+                task_count += 1
+
+print("Goodbye!")
